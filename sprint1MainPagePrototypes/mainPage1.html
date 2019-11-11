@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>TheyWill Food Generator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  font-size: 100%;
+  font-family: "Courier New";
+  font-variant: small-caps;
+  background: lightblue;
+<!--  margin: 0 -->
+
+}
+
+h1 {
+  font-size: 4em;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightblue;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+#liTtl {
+  font-size: 4em;
+  float: left;
+}
+
+.content {
+  font-size: 3.125em;
+  text-align: center;
+  padding: 0em;
+  display: block;
+ 
+}
+
+.content a {
+  color: grey;
+}
+.content a:hover {
+  color: red;
+}
+.footer {
+  position: fixed;
+  bottom: 0.5em;
+  text-align: center;
+  color: brown;
+  font-family: arial;
+  font-size: 1em;
+  padding: 0px;
+}
+
+<!-- div {
+  width: 100%;
+  height: 2em;
+  padding: 0%;
+  margin: 0%;
+  float: center;
+}
+//-->
+
+
+/* The popup form - hidden by default */
+.results-page {
+  display: none;
+  position: fixed;
+  bottom: 50%;
+  right: 50%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.results-container {
+  max-width: 40em;
+  height: 18.125em;
+  padding: 10px;
+  background-color: white;
+}
+
+
+
+
+
+
+
+/* Add a red background color to the cancel button */
+.results-container .cancel {
+  background-color: red;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<ul>
+  <li id = "liTtl">They Will</li>
+  <li><a href="#aboutUs" target="_blank">About Us</a></li>
+<!--  <li><a class="active" href="#home">Home</a></li> -->
+  <li><a href="#helpMe" target="_blank">Help Me</a></li>
+</ul>
+
+<div class = "content">
+  <a onclick="openForm()"><br/><br/><br/>Generate</a>
+</div>
+
+
+
+<div class="results-page" id="myResults">
+  <form action="/action_page.php" class="results-container">
+    <h1>Results</h1>
+
+    <button type="button" class="btn cancel" onclick="closeForm()">X</button>
+  </form>
+</div>
+
+
+
+
+<div class = "footer">
+  <p>Contact info</p>
+</div>
+
+
+
+<script>
+function openForm() {
+  document.getElementById("myResults").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myResults").style.display = "none";
+}
+</script>
+
+
+
+</body>
+</html>
