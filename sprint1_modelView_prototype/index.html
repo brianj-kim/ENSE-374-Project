@@ -1,64 +1,24 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-<title>Inquiries - SignUp</title>
 
-<!-- <script type="text/javascript" src="signUpValidation.js"> </script>  -->
-
-
-
+<title>TheyWill Food Generator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
-
-
-
 <body>
-
-<div class="topheader">Lets Eat</div>
-
-<div class="mainheader"><ul>
-  <li><a href="index.html">Home</a></li>
-  <li style="float:right" class="dropdown">
-    <a  href="aboutUs.Html">About Us</a>
-      
-  </li>
-  <li style="float:right">
-    <a  href="help.Html">Help</a>
-  </li>
-</ul></div>
-
-<br>
-<br>
-<br>
-<br>
-
-
-<header class="first"></header>
-
-
-<div class="container"><section class="login">
-
-
-
-
-
-
-   									 <!--    <form id="LogIn" method="post" class="loginLeft">
-  									
-										<table>
-										  <tr><td>Email: </td></tr><tr><td><input type="text" name="email" size="30"/></td></tr><tr><td><label id="email_msg" class="err_msg"></td></tr>
-											  <tr><td>Password: </td></tr><tr><td><input type="Password" name="pswd" size="30"/></td></tr><tr><td><label id="pswd_msg" class="err_msg"></label></td></tr>
-										</table>
-									     
-										<input type="submit" name="Go" value="Go!"/>
-										<input type="hidden" name="submitted" value="1"/>
-    										 </form>
-
-									-->
-     <button id="getLocations" >Go!</button>
+<ul>
+  <li id = "liTtl">They Will</li>
+  <li><a href="#aboutUs" target="_blank">About Us</a></li>
+<!--  <li><a class="active" href="#home">Home</a></li> -->
+  <li><a href="#helpMe" target="_blank">Help Me</a></li>
+</ul>
+<div class = "content">
+	<br><br><br><br>
+  <!--<a href="https://www.google.ca/maps/place/McDonald's/@50.4153519,-104.5988886,17z/data=!3m1!4b1!4m5!3m4!1s0x531ea0974f22fcdd:0x40c88f8e141b8549!8m2!3d50.4153519!4d-104.5966999?hl=en" target="_blank"><br/><br/><br/>Generate</a> -->
+<button class="button" id="getLocations" >Generate</button>
      <!-- The Modal -->
      <div id="myModal" class="modal">
 
@@ -66,28 +26,17 @@
      <div class="modal-content">
      <span class="close">&times;</span>
      <p id="modal_msg">Preparing your results...</p>
-  </div>
+<script type="text/javascript" src="placeSearch.js"> </script>	 
 
 </div>
-
-<script type="text/javascript" src="placeSearch.js"> </script>  
-</section>
+<div class = "footer">
+  <p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Contact info</p>
 </div>
 
 
 
 
-
-
-<script type = "text/javascript"  src = "LogIn-r.js" ></script>
-
+ 
 
 </body>
-
-
 </html>
-
-
-
-
-
