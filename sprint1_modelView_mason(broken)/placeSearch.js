@@ -26,8 +26,17 @@ let currentInfoWindow;
 let service;
 let infoPane;
 let radius;
+let buttonPressed = false;
 var getNextPage = null;
 function initMap() {
+  
+
+  if(!buttonPressed)
+  {
+    return;
+ 
+  }
+  
   // Initialize variables
   bounds = new google.maps.LatLngBounds();
   infoWindow = new google.maps.InfoWindow();
@@ -195,7 +204,7 @@ function showDetails(placeResult, marker, status) {
         placeResult.name +
         "</strong><br>" +
         "Rating: " +
-        rating +
+        rating.toFixed(2) +
         "</div>"
     );
     placeInfowindow.open(marker.map, marker);
@@ -234,8 +243,9 @@ function showPanel(placeResult) {
   infoPane.appendChild(name);
   if (placeResult.rating) {
     let rating = document.createElement("p");
+    
     rating.classList.add("details");
-    rating.textContent = `Rating: ${placeResult.rating} \u272e`;
+    rating.textContent = `Rating: ${placeResult.rating.toFixed(2)} \u272e`;
     infoPane.appendChild(rating);
   }
 
@@ -276,6 +286,7 @@ getLocations.onclick = function() {
   getLocation();
   finalPlaces = new Array();
   pageSize = 1;
+  buttonPressed = true;
   initMap();
   modal.style.display = "block";
   
@@ -294,5 +305,6 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    buttonPressed = false;
   }
 }

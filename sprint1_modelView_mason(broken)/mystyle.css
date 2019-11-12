@@ -137,20 +137,22 @@ li a:hover {
 }
 
  #map {
-    height: 425px;
-    background-color: grey;
     
+    height: 500px;
+    background-color: grey;
+
 }
 
 #panel {
-    height: 435px;
-    width: null;
+    height: 500px;
+    width: 12.5%;
     background-color:rgba(255, 255, 255, 0.9);
-    position: fixed;
+    position: absolute;
     z-index: 1;
     overflow-x: hidden;
     transition: all .2s ease-out;
     font-size: 15px;
+    word-wrap: break-word
 }
 
 
