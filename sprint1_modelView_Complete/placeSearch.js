@@ -53,7 +53,7 @@ let buttonPressed = false;
 let finalPlaces = new Array();
 let pageSize = 1;
 var getNextPage = null;
-let searchRadius = 2000;
+let searchRadius = 80000;
 let locationType = "restaurant"
 function initMap() 
 {
@@ -138,6 +138,7 @@ function getNearbyPlaces(position)
      };
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, nearbyCallback);
+   
 }
 
 
@@ -151,7 +152,11 @@ function nearbyCallback(results, status, pagination)
        {
     	 sleep:2;
      	 pagination.nextPage();				//if we have a 2nd or 3rd page of results, do nearbycallback and add to list (60 total)
-   	   }  
+   	   }
+	else
+	{
+		 createMarkers(finalPlaces); 
+	}  
    }
 }
 
@@ -161,14 +166,6 @@ function createFullList(places)				//we may only have 60 results, so we will not
 {
 	finalPlaces = finalPlaces.concat(places);
 
-	if(pageSize != 3)
-	 {
-		pageSize++;
-	 }
-	else
-	 {
-		createMarkers(finalPlaces); 
-	 }
 }
 
 // Set markers at the location of each place result
