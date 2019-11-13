@@ -94,7 +94,7 @@ function initMap() {
 			bounds.extend(pos);
 			infoWindow.setPosition(pos);
 			infoWindow.setContent("Location found.");
-			infoWindow.open(map);
+			//infoWindow.open(map);
 			map.setCenter(pos); //we have a map centered on our user's pos
 			// Call Places Nearby Search on user's location (will get 20 nearby results)
 			getNearbyPlaces(pos);
@@ -110,7 +110,7 @@ function initMap() {
 
 // Handle a geolocation error
 function handleLocationError(browserHasGeolocation, infoWindow) {
-	// Set default location to Sydney, Australia
+	// Set default location to Regina
 	pos = {
 		lat: 50.437,
 		lng: -104.6
