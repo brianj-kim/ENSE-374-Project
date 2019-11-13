@@ -1,11 +1,10 @@
-
 /*MAIN CSS */
 
 body {
   font-family: "Courier New";
   font-variant: small-caps;
   background: lightblue;
-  <!--  margin: 0 -->
+  < !-- margin: 0 -->
 }
 
 h1 {
@@ -49,7 +48,7 @@ li a:hover {
 .content {
   font-size: 50px;
   text-align: center;
-  padding: 0px; 
+  padding: 0px;
 }
 
 .footer {
@@ -67,7 +66,8 @@ li a:hover {
 
 /*CSS for our main button */
 .button {
-  background-color: #ffffff; /* Green */
+  background-color: #ffffff;
+  /* Green */
   border: none;
   padding: 20px;
   text-align: center;
@@ -91,25 +91,35 @@ li a:hover {
 /* MODAL CSS */
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
+  margin: 5% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* Close Button */
@@ -129,55 +139,64 @@ li a:hover {
 
 
 #modal_msg {
-	font-size: 30px;
-	text-align: left;
-	font-weight: bold;
+  font-size: 30px;
+  text-align: left;
+  font-weight: bold;
 }
 
 
 /*MAPS CSS */
- #map {   
-    height: 500px;
-    background-color: grey;
+#map {
+  height: 500px;
+  background-color: grey;
 }
 
 #panel {
-    height: 500px;
-    width: 12.5%;
-    background-color:rgba(255, 255, 255, 0.9);
-    position: absolute;
-    z-index: 1;
-    overflow-x: hidden;
-    transition: all .2s ease-out;
-    font-size: 15px;
-    word-wrap: break-word
+  height: 500px;
+  width: null;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: all .2s ease-out;
+  font-size: 15px;
+  word-wrap: break-word
+}
+
+#panel>h1 {
+  font-size: 0.9em;
+}
+
+#panel>p {
+  font-size: 0.8em;
+
 }
 
 .open {
-    width: 200px;
+  width: 13%;
 }
 
 /* Styling for place details */
 .hero {
-    width: 100%;
-    height: auto;
-    max-height: 166px;
-    display: block;
+  width: 100%;
+  height: auto;
+  max-height: 166px;
+  display: block;
 }
 
 .place,
 p {
-    font-family: 'open sans', arial, sans-serif;
-    padding-left: 18px;
-    padding-right: 18px;
+  font-family: 'open sans', arial, sans-serif;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .details {
-    color: darkslategrey;
+  color: darkslategrey;
 }
 
 a {
-    text-decoration: none;
-    color: cadetblue;
-    word-wrap: break-word
+  text-decoration: none;
+  color: cadetblue;
+  word-wrap: break-word
 }
