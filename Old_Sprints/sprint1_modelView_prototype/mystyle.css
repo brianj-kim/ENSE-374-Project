@@ -1,0 +1,133 @@
+
+body {
+  font-family: "Courier New";
+  font-variant: small-caps;
+  background: lightblue;
+<!--  margin: 0 -->
+}
+h1 {
+  font-size: 20px;
+  display: block;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightblue;
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+#liTtl {
+  font-size: 50px;
+  float: left;
+}
+.content {
+  font-size: 50px;
+  text-align: center;
+  padding: 0px;
+ 
+}
+.content a {
+  color: grey;
+}
+.content a:hover {
+  color: red;
+}
+.footer {
+  height: 10%;
+  text-align: center;
+  color: brown;
+  font-family: arial;
+  font-size: 15px;
+  padding: 0px;
+}
+<!-- div {
+  width: 100%;
+  height: 450px;
+  padding: 100px;
+  margin: 0%;
+  float: center;
+}
+-->
+
+.button {
+  background-color: #ffffff; /* Green */
+  border: none;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 20px;
+  font-family: "Courier New";
+  font-variant: small-caps;
+  text-decoration: underline;
+  color: grey;
+
+}
+
+
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
