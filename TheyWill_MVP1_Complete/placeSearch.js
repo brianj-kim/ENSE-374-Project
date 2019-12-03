@@ -9,6 +9,8 @@ let span = document.getElementsByClassName("close")[0];
 
 let infoPane = document.getElementById("panel");
 
+let placesList = document.getElementById("lists");
+
 // When the user clicks on the button, open the modal
 getLocations.onclick = function () {
 	//getLocation();  (redundant)
@@ -17,7 +19,7 @@ getLocations.onclick = function () {
 	buttonPressed = true;
 	initMap(); //initiate map
 	modal.style.display = "block"; //display
-
+	getLocations.style.display = "none";
 }
 
 //getLocations.onclick = getLocation();
@@ -32,6 +34,9 @@ span.onclick = function () {
 	while (infoPane.lastChild) {
 		infoPane.removeChild(infoPane.lastChild);
 	}
+
+	//placesList.innerHTML = "";
+	getLocations.style.display = "";
 
 }
 
@@ -49,6 +54,9 @@ window.onclick = function (event) {
 	while (infoPane.lastChild) {
 		infoPane.removeChild(infoPane.lastChild);
 	}
+
+	//placesList.innerHTML = "";
+	getLocations.style.display = "";
 }
 
 ///////////////////////////////////////////////
@@ -66,7 +74,7 @@ let radius;
 let buttonPressed = false;
 let finalPlaces = new Array();
 let pageSize = 1;
-var getNextPage = null;
+let getNextPage = null;
 let searchRadius = 80000;
 let locationType = "restaurant"
 
@@ -110,7 +118,7 @@ function initMap() {
 
 // Handle a geolocation error
 function handleLocationError(browserHasGeolocation, infoWindow) {
-	// Set default location to Regina
+	// Set default location to U of R (Regina)
 	pos = {
 		lat: 50.437,
 		lng: -104.6
@@ -176,6 +184,10 @@ function createMarkers(places) {
 	let i;
 	let randomPlaces = new Array();
 
+	let placesList = document.getElementById("lists");
+	// intitialize when the function call
+	placesList.innerHTML = "";
+
 	//var temp;
 	for (i = 0; i < searchSize; i++) {
 		do {
@@ -191,7 +203,7 @@ function createMarkers(places) {
 				position: place.geometry.location,
 				map: map,
 				title: place.name
-			});
+			});			
 
 			/* TODO: Step 4B: Add click listeners to the markers */
 			// Add click listener to each marker
@@ -209,19 +221,32 @@ function createMarkers(places) {
 						]
 					};
 					/* Only fetch the details of a place when the user clicks on a marker.
-					 * If we fetch the details for all place results as soon as we get
-					 * the search response, we will hit API rate limits. */
+					If we fetch the details for all place results as soon as we get
+				    the search response, we will hit API rate limits. */
 					service.getDetails(request, (placeResult, status) => {
 						showDetails(placeResult, marker, status);
 					});
 				});
+				
+			// Add places list under the map: by Brian
+			let newItem = document.createElement("div");
+			newItem.textContent = marker.title;
+			newItem.addEventListener("click", () => {
+				google.maps.event.trigger(marker, 'click', {});
+			});
+			placesList.appendChild(newItem);
+			// End - Add places list under the map: by Brian
+
 			// Adjust the map bounds to include the location of this marker
 			bounds.extend(place.geometry.location);
 		});
+
+		
+		
 	/* Once all the markers have been placed, adjust the bounds of the map to
-	 * show all the markers within the visible area. */
+	   show all the markers within the visible area. */
 	map.fitBounds(bounds);
-	pageSize = 4;
+	pageSize = 4;	
 }
 
 // Builds an InfoWindow to display details above the marker
@@ -299,14 +324,6 @@ function showPanel(placeResult) {
 	}
 	// Open the infoPane
 	infoPane.classList.add("open");
-}
-
-
-
-
-
-
-
 
 /* POTENTIALLY REDUNDANT
 var x = document.getElementById("modal_msg");
