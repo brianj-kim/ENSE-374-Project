@@ -35,7 +35,8 @@ span.onclick = function () {
 		infoPane.removeChild(infoPane.lastChild);
 	}
 
-	//placesList.innerHTML = "";
+	// intitialize when the function call
+	placesList.innerHTML = "";
 	getLocations.style.display = "";
 
 }
@@ -55,7 +56,7 @@ window.onclick = function (event) {
 		infoPane.removeChild(infoPane.lastChild);
 	}
 
-	//placesList.innerHTML = "";
+	// intitialize when the function call
 	getLocations.style.display = "";
 }
 
@@ -324,6 +325,7 @@ function showPanel(placeResult) {
 	}
 	// Open the infoPane
 	infoPane.classList.add("open");
+}
 
 /* POTENTIALLY REDUNDANT
 var x = document.getElementById("modal_msg");
@@ -345,5 +347,4 @@ function showPosition(position) {
 	
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-}
-*/
+} */
