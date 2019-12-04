@@ -45,6 +45,16 @@ li a:hover {
   float: left;
 }
 
+#liTtl a {
+  color: black;
+  display: inline;
+  padding: 0;
+}
+
+#liTtl a:hover {
+  background-color: lightblue;
+}
+
 .content {
 
   text-align: center;
@@ -63,6 +73,13 @@ li a:hover {
   font-family: arial;
   font-size: 16px;
   padding: 0px;
+}
+
+#foot {	
+	text-align: right;
+	font-variant: small-caps;
+	color: white;
+	
 }
 
 /*CSS for our main button */
@@ -329,6 +346,44 @@ input.button:hover {
 #getLocations {
   outline:0 ;
 }
+
+
+
+/*AboutUs and HelpMe page CSS*/	
+
+p {
+/*	font-family: "Courier New";	*/
+	font-size: 18px;
+	font-variant: normal;
+	/*text-align: left;*/
+	font-weight: normal;
+	color: black;
+}
+
+h2 {
+	font-size: 35px;
+	/*text-align: left;*/
+	font-weight: normal;
+	text-decoration: underline;
+	/*padding-left: 18px;*/
+}
+
+#help {
+	text-align: left;
+	padding-left: 18px;
+}
+
+
+img {
+	border: 2px solid white;
+	border-radius: 8px;
+	width: 20vw;
+	height: 20vh;
+	float: right;
+	
+	
+}
+
 
 
 
