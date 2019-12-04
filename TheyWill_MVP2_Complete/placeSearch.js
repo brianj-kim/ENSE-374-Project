@@ -367,7 +367,8 @@ function createMarkers(places) {
 	/* Once all the markers have been placed, adjust the bounds of the map to
 	   show all the markers within the visible area. */
 	map.fitBounds(bounds);
-	pageSize = 4;	
+	pageSize = 4;
+	placesList.firstElementChild.classList.add("childDiv");	
 }
 
 // Builds an InfoWindow to display details above the marker
