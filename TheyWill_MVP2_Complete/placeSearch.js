@@ -448,12 +448,24 @@ function showPanel(placeResult) {
 	{
 	let open_now = document.createElement("p");
 
-	
-
+	if(placeResult.opening_hours.open_now == true)
+		{
+		open_now.classList.add("details");
+		open_now.textContent = `OPEN`; //round to 2 decimals or else we get absurdly large float
+		infoPane.appendChild(open_now);
+		}
+	else
+		{
+		open_now.classList.add("details");
+		open_now.textContent = `CLOSED`; //round to 2 decimals or else we get absurdly large float
+		infoPane.appendChild(open_now);
+		}
 		
+	/*
 	open_now.classList.add("details");
 	open_now.textContent = `${placeResult.opening_hours.open_now}`; //round to 2 decimals or else we get absurdly large float
 	infoPane.appendChild(open_now);
+*/
 	
 	
 	}
