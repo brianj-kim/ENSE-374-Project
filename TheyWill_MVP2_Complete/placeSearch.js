@@ -61,6 +61,9 @@ vanueSlider.oninput = function(){
 
 generate.onclick = function(){
 	
+	let place_list = document.getElementById("lists");
+	place_list.innerHTML = "";
+
 	searchRadius = 1000*document.getElementById("searchRadius").value;
 	venueValue = document.getElementById("dollarValue").value;
 	locationType = placeTypes[document.getElementById("venueType").value];
