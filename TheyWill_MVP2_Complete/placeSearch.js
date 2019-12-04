@@ -23,6 +23,7 @@ var vanueSlider = document.getElementById("venueType");
 var venueOutput = document.getElementById("venueOutput");
 var resultsSlider = document.getElementById("totalResults");
 var resultOutput = document.getElementById("resultsOutput");
+var openNowCheck;
 
 
 rangeOutput.innerHTML = rangeSlider.value + " km";
@@ -58,16 +59,27 @@ vanueSlider.oninput = function(){
 	
 
 }
-
+let test = document.getElementById("openNow");
 generate.onclick = function(){
 	
-	let place_list = document.getElementById("lists");
-	place_list.innerHTML = "";
-
 	searchRadius = 1000*document.getElementById("searchRadius").value;
 	venueValue = document.getElementById("dollarValue").value;
 	locationType = placeTypes[document.getElementById("venueType").value];
 	searchSize = document.getElementById("totalResults").value;
+	 test = document.getElementById("openNow");
+	
+		let checkBox = document.getElementById("openNow");
+		
+		
+		if(checkBox.checked==true)
+		{
+			openNowCheck = true;
+		}
+		else
+		{
+			openNowCheck = false;
+		}
+	
 	initMap();
 	finalPlaces = [];
 	
@@ -237,7 +249,8 @@ function getNearbyPlaces(position) {
 		location: position, //variables of search parameters, able to change 
 		radius: searchRadius,
 		type: locationType,
-		minPriceLevel: venueValue
+		maxPriceLevel: venueValue,
+		openNow: openNowCheck
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, nearbyCallback);
@@ -279,9 +292,23 @@ function createMarkers(places) {
 	let placesList = document.getElementById("lists");
 	// intitialize when the function call
 	placesList.innerHTML = "";
+	
+	
+	let maxForSize = 0;
+	if(searchSize > finalPlaces.length)
+	{
+		maxForSize = finalPlaces.length;
+	}
+	else
+	{
+		maxForSize = searchSize;
+	}
 
+	
+	
+	
 	//var temp;
-	for (i = 0; i < searchSize; i++) {
+	for (i = 0; i < maxForSize; i++) {
 		do {
 			random = Math.round((Math.random() * places.length)); //get a random number within our list of 60
 		} while (random < 0 || random > places.length)
@@ -310,7 +337,8 @@ function createMarkers(places) {
 							"rating",
 							"website",
 							"photos",
-							"price_level"
+							"price_level",
+							"opening_hours"
 						]
 					};
 					/* Only fetch the details of a place when the user clicks on a marker.
@@ -339,9 +367,7 @@ function createMarkers(places) {
 	/* Once all the markers have been placed, adjust the bounds of the map to
 	   show all the markers within the visible area. */
 	map.fitBounds(bounds);
-	pageSize = 4;
-	
-	placesList.firstElementChild.classList.add("childDiv");
+	pageSize = 4;	
 }
 
 // Builds an InfoWindow to display details above the marker
@@ -416,7 +442,21 @@ function showPanel(placeResult) {
 		price_level.textContent = `Price: ${placeValue[placeResult.price_level]}`; //round to 2 decimals or else we get absurdly large float
 		infoPane.appendChild(price_level);
 		}
+
+	if (placeResult.opening_hours)
+	{
+	let open_now = document.createElement("p");
+
 	
+
+		
+	open_now.classList.add("details");
+	open_now.textContent = `${placeResult.opening_hours.open_now}`; //round to 2 decimals or else we get absurdly large float
+	infoPane.appendChild(open_now);
+	
+	
+	}
+
 
 	
 	if (placeResult.website) {

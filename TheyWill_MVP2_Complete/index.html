@@ -11,9 +11,9 @@
 
 <body>
   <ul>
-  	<li id = "liTtl"><a href="index.html">They Will</a></li>
-  	<li><a href="AboutUs.html">About Us</a></li>
-  	<li><a href="HelpMe.html">Help Me</a></li>
+  	<li id = "liTtl">They Will</li>
+  	<li><a href="#aboutUs" target="_blank">About Us</a></li>
+  	<li><a href="#helpMe" target="_blank">Help Me</a></li>
   </ul>
 
   <div class = "content">
@@ -23,33 +23,58 @@
     <div id="myModal" class="modal">  
       <!-- Modal content -->
       <div class="modal-content">
-         
+         <!--  
          	<table class = "table_font">
-         		<tr>
-         			<td>Range</td><td>Max Results</td><td>Sort by</td><td><span class="close">&times;</span></td>
+         		
+         			<td>Range</td><td>Max Results</td><td>Max Price</td><td><span class="close">&times;</span></td>
          		</tr>
          		<tr>
          			<td><input type="range" min="1" max="50" value="25" class="slider" id="searchRadius" step="1"></td>
          			<td><input type="range" min="0" max="20" value="5" class="slider" id="totalResults" step="1"></td>
-         			<td><input type="checkbox" name="Rank by Popularity/Rating" value="prominenceRank"></td>
-         		
+         			
+         			<td><input type="range" min="0" max="4" value="2" class="slider" id="dollarValue" step="1"></td>
 					<td><div id="slider"></div></td>
 				</tr>			
          		<tr>
-         			<td><span id="rangeOutput"></span></td><td><span id="resultsOutput"></span></td><td>Popularity</td>
+         			<td><span id="rangeOutput"></span></td><td><span id="resultsOutput"></span></td><td><span id="dollarOutput"></span></td>
          		</tr>
-         		<tr>
-         			<td>Value</td><td>Venue Type</td><td>Open</td>
-         		</tr>	
-         		<tr>
-         			<td><input type="range" min="0" max="4" value="3" class="slider" id="dollarValue" step="1"></td>
-         			<td><input type="range" min="0" max="50" value="38" class="slider" id="venueType" step="1"></td>
-         			<td><input type="checkbox" name="Open Now" value="openNow"></td>
-         		</tr>
-         		<tr>
-         			<td><span id="dollarOutput"></span></td><td><span id="venueOutput"></span></td><td>Now</td>
-         		</tr>
+         		
          	</table>
+         	-->
+         	<span class="close">&times;</span>
+         	<div class = "row">
+         		<div class ="evenColumn">Range</div><div class ="evenColumn">Max Results</div><div class ="evenColumn">Max Price</div>
+         	</div>
+         	<div class = "row">
+         		<div class ="evenColumn"><input type="range" min="1" max="50" value="25" class="slider" id="searchRadius" step="1"></div>
+         		<div class ="evenColumn"><input type="range" min="0" max="20" value="5" class="slider" id="totalResults" step="1"></div>
+         			
+         		<div class ="evenColumn"><input type="range" min="0" max="4" value="2" class="slider" id="dollarValue" step="1"></div>
+
+         	</div>
+         	<div class = "row">
+         		<div class ="evenColumn" id="rangeOutput"></div><div class ="evenColumn" id="resultsOutput"></div><div class ="evenColumn" id="dollarOutput"></div>
+         	</div>
+         	
+         	
+         	
+         	
+         	<div class = "row">
+         		
+         			<div class ="bigColumn">Venue Type</div><div class ="smallColumn">Open Now</div>
+         	</div>
+         	<div class = "row">
+         		
+         			<div class ="bigColumn"><input type="range" min="0" max="50" value="38" class="slider" id="venueType" step="1"></div>
+         			<div class ="smallColumn"> <input type="checkbox" id="openNow"></div>
+         	</div>
+         	<div class = "row">
+         		<div class ="bigColumn" id="venueOutput"></div>
+         			
+         	</div>		
+         			
+         			
+      
 
          	<input class="button" type="submit" value="Generate" id="generate"></td></tr>
          	  
@@ -76,7 +101,7 @@
 
 
   <div class = "footer">
-    <p id="foot">TheyWill</p>
+    <p>TheyWill</p>
   </div>
 
 
