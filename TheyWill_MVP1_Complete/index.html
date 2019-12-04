@@ -17,30 +17,40 @@
   </ul>
 
   <div class = "content">
-    <br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     <button class="button" id="getLocations" >Generate</button>
     <!--The Modal--> 
     <div id="myModal" class="modal">  
       <!-- Modal content -->
       <div class="modal-content">
-         <span class="close">&times;</span>
+         
          	<table class = "table_font">
-         		<tr><td>Sort by</td><td>Open</td><td>Range</td><td>Value</td><td>Venue Type</td></tr>
-         			<tr>
-         			<td><input type="checkbox" name="Rank by Popularity/Rating" value="prominenceRank"></td>
-         			<td><input type="checkbox" name="Open Now" value="openNow"></td>
+         		<tr>
+         			<td>Range</td><td>Max Results</td><td>Sort by</td><td><span class="close">&times;</span></td>
+         		</tr>
+         		<tr>
          			<td><input type="range" min="1" max="50" value="25" class="slider" id="searchRadius" step="1"></td>
          			<td><input type="range" min="0" max="20" value="5" class="slider" id="totalResults" step="1"></td>
-         			<td><input type="range" min="0" max="3" value="3" class="slider" id="dollarValue" step="1"></td>
-         			<td><input type="range" min="0" max="50" value="38" class="slider" id="venueType" step="1"></td>
-         			
-         			
-         			<td><div id="slider"></div></td></tr>
-         			
-         			
-         		<tr><td>Popularity</td><td>Now</td><td><span id="resultsOutput"></span></td><td><span id="rangeOutput"></span></td><td><span id="dollarOutput"></span></td><td><span id="venueOutput"></span></td></tr>
+         			<td><input type="checkbox" name="Rank by Popularity/Rating" value="prominenceRank"></td>
          		
+					<td><div id="slider"></div></td>
+				</tr>			
+         		<tr>
+         			<td><span id="rangeOutput"></span></td><td><span id="resultsOutput"></span></td><td>Popularity</td>
+         		</tr>
+         		<tr>
+         			<td>Value</td><td>Venue Type</td><td>Open</td>
+         		</tr>	
+         		<tr>
+         			<td><input type="range" min="0" max="4" value="3" class="slider" id="dollarValue" step="1"></td>
+         			<td><input type="range" min="0" max="50" value="38" class="slider" id="venueType" step="1"></td>
+         			<td><input type="checkbox" name="Open Now" value="openNow"></td>
+         		</tr>
+         		<tr>
+         			<td><span id="dollarOutput"></span></td><td><span id="venueOutput"></span></td><td>Now</td>
+         		</tr>
          	</table>
+
          	<input class="button" type="submit" value="Generate" id="generate"></td></tr>
          	  
  				

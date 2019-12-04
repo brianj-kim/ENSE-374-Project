@@ -13,7 +13,7 @@ var placeTypes =[
 	'shoe_store', 'shopping_mall', 'spa', 'store', 'supermarket',
 	'synagogue', 'tourist_attraction', 'university', 'zoo'
 	];
-var placeValue =['Free', '$', '$$','$$$'];
+var placeValue =['Free', '$', '$$','$$$', '$$$$'];
 let searchSize = 5;
 var rangeSlider = document.getElementById("searchRadius");
 var rangeOutput = document.getElementById("rangeOutput");
@@ -25,7 +25,7 @@ var resultsSlider = document.getElementById("totalResults");
 var resultOutput = document.getElementById("resultsOutput");
 
 
-rangeOutput.innerHTML = rangeSlider.value;
+rangeOutput.innerHTML = rangeSlider.value + " km";
 dollarOutput.innerHTML = placeValue[dollarSlider.value];
 venueOutput.innerHTML = placeTypes[vanueSlider.value];
 resultOutput.innerHTML = resultsSlider.value;
@@ -66,6 +66,8 @@ generate.onclick = function(){
 	locationType = placeTypes[document.getElementById("venueType").value];
 	searchSize = document.getElementById("totalResults").value;
 	initMap();
+	finalPlaces = [];
+	
 }
 
 
@@ -232,7 +234,7 @@ function getNearbyPlaces(position) {
 		location: position, //variables of search parameters, able to change 
 		radius: searchRadius,
 		type: locationType,
-		minPrice: "4"
+		minprice: "5"
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, nearbyCallback);
@@ -425,10 +427,25 @@ function showPanel(placeResult) {
 	// Open the infoPane
 	infoPane.classList.add("open");
 }
-
-
-
-
+/*
+function parsePriceLevel(priceLevel){
+	switch (priceLevel) {
+	case "0":
+		return maps.PriceLevelFree
+	case "1":
+		return maps.PriceLevelInexpensive
+	case "2":
+		return maps.PriceLevelModerate
+	case "3":
+		return maps.PriceLevelExpensive
+	case "4":
+		return maps.PriceLevelVeryExpensive
+	default:
+		usageAndExit(fmt.Sprintf("Unknown price level: '%s'", priceLevel))
+	}
+	return maps.PriceLevelFree
+}
+*/
 /* POTENTIALLY REDUNDANT
 var x = document.getElementById("modal_msg");
 
