@@ -46,7 +46,7 @@ li a:hover {
 }
 
 .content {
-  font-size: 50px;
+  font-size: 8vmin;
   text-align: center;
   padding: 0px;
 
@@ -114,7 +114,7 @@ li a:hover {
 
 /* Modal Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #F5F5F5;
   margin: 5% auto;
   /* 15% from the top and centered */
   padding: 20px;
@@ -129,6 +129,9 @@ li a:hover {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  left: 88%;
+
 }
 
 .close:hover,
@@ -148,19 +151,20 @@ li a:hover {
 
 /*MAPS CSS */
 #map {
-  height: 500px;
+  height: 65vh;
+  /*height: calc(100% - 75px);*/
   background-color: grey;
 }
 
 #panel {
-  height: 500px;
-  width: null;
+  height: 65vh;
+  width: 12.5vmax;
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
   z-index: 1;
   overflow-x: hidden;
   transition: all .2s ease-out;
-  font-size: 15px;
+  font-size: 2vmin;
   word-wrap: break-word
 }
 
@@ -227,8 +231,96 @@ a {
   justify-content: center;
   width: 19%;
   line-height: 24px;
-  font-size: 0.3em;
+  font-size: 1vmax;
   font-family:sans-serif;
   border-right: 1px dotted #111;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+/* for the under places list */
+
+.slidecontainer {
+  width: 1vmax;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 20vw;
+  height: 1vw;
+  border-radius: 1vmin;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.5vmin;
+  height: 3.5vmin;
+  border-radius: 25%;
+  background: lightblue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+ background: lightblue;
+  cursor: pointer;
+}
+
+input.button{
+	background-color: lightblue;
+	font-size: 2.5vmin;
+	padding: 1vmin;
+	margin: 0px 0px;
+	width:100%
+}
+input.button:hover {
+  color: darkslategrey;
+  box-shadow: 0px 0px grey;
+}
+.table_font{
+	font-size: 2vmin;
+	
+	width: 80vw;
+	padding: 0%
+	margin: 0%;
+}
+.table{
+	border-spacing: 0px;
+	font-size: 1.5vmin;
+	position: absolute;
+	table-layout: fixed;
+	align: center;
+	position:absolute;
+	 border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+

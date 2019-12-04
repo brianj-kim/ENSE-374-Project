@@ -1,3 +1,77 @@
+var placeTypes =[
+	'amusement_park', 'aquarium', 'art_gallery', 
+	'bakery', 'bar', 'beauty_salon', 'bicycle_store', 
+	'book_store', 'bowling_alley', 'cafe', 'campground', 
+	'car_dealer', 'car_rental', 'casino', 'church', 
+	'clothing_store', 'convenience_store', 'department_store', 
+	'electronics_store', 'florist', 'furniture_store', 
+	'grocery_or_supermarket', 'gym', 'hair_care', 'hardware_store', 
+	'hindu_temple', 'home_goods_store', 'jewelry_store', 'library',
+	'lodging', 'meal_delivery', 'meal_takeaway', 'mosque', 
+	'movie_theater', 'museum', 'night_club', 'park', 'pet_store',
+	'restaurant', 'school', 'primary_school', 'secondary_school', 
+	'shoe_store', 'shopping_mall', 'spa', 'store', 'supermarket',
+	'synagogue', 'tourist_attraction', 'university', 'zoo'
+	];
+var placeValue =['Free', '$', '$$','$$$'];
+let searchSize = 5;
+var rangeSlider = document.getElementById("searchRadius");
+var rangeOutput = document.getElementById("rangeOutput");
+var dollarSlider = document.getElementById("dollarValue");
+var dollarOutput = document.getElementById("dollarOutput");
+var vanueSlider = document.getElementById("venueType");
+var venueOutput = document.getElementById("venueOutput");
+var resultsSlider = document.getElementById("totalResults");
+var resultOutput = document.getElementById("resultsOutput");
+
+
+rangeOutput.innerHTML = rangeSlider.value;
+dollarOutput.innerHTML = placeValue[dollarSlider.value];
+venueOutput.innerHTML = placeTypes[vanueSlider.value];
+resultOutput.innerHTML = resultsSlider.value;
+
+
+var searchRadius = 1000*rangeSlider.value;
+
+
+rangeSlider.oninput = function(){
+	rangeOutput.innerHTML = this.value + " km";
+	
+
+}
+
+resultsSlider.oninput = function(){
+	resultOutput.innerHTML = this.value;
+	
+
+}
+
+
+dollarSlider.oninput = function(){
+	dollarOutput.innerHTML = placeValue[this.value];
+	
+
+}
+
+vanueSlider.oninput = function(){
+	venueOutput.innerHTML = placeTypes[this.value];
+	
+
+}
+
+generate.onclick = function(){
+	
+	searchRadius = 1000*document.getElementById("searchRadius").value;
+	venueValue = document.getElementById("dollarValue").value;
+	locationType = placeTypes[document.getElementById("venueType").value];
+	searchSize = document.getElementById("totalResults").value;
+	initMap();
+}
+
+
+
+
+
 /*MODAL SCRIPT*/
 ////////////////
 //Get  modal
@@ -17,7 +91,7 @@ getLocations.onclick = function () {
 	finalPlaces = new Array(); /*an array of our curated place results*/
 	pageSize = 1; /*assume we have atleast 1 page of results to start*/
 	buttonPressed = true;
-	initMap(); //initiate map
+
 	modal.style.display = "block"; //display
 	getLocations.style.display = "none";
 }
@@ -76,8 +150,8 @@ let buttonPressed = false;
 let finalPlaces = new Array();
 let pageSize = 1;
 let getNextPage = null;
-let searchRadius = 80000;
-let locationType = "restaurant"
+
+let locationType = placeTypes[vanueSlider.value]
 
 function initMap() {
 	if (!buttonPressed) {
@@ -88,7 +162,7 @@ function initMap() {
 	bounds = new google.maps.LatLngBounds();
 	infoWindow = new google.maps.InfoWindow();
 	currentInfoWindow = infoWindow;
-
+	
 	// Try HTML5 geolocation. Ask for users lat/long	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(position => {
@@ -98,7 +172,11 @@ function initMap() {
 			};
 			map = new google.maps.Map(document.getElementById("map"), {
 				center: pos, //center map to coordinates, zoom to reasonable distance
-				zoom: 15
+				zoom: 15,
+				mapTypeControl: false,	
+				fullScreenControl: false,
+				streetViewControl: false,
+				fullscreenControl: false
 			});
 			bounds.extend(pos);
 			infoWindow.setPosition(pos);
@@ -126,7 +204,12 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 	};
 	map = new google.maps.Map(document.getElementById("map"), {
 		center: pos,
-		zoom: 15
+		zoom: 15,
+		mapTypeControl: false,	
+		fullScreenControl: false,
+		streetViewControl: false,
+		fullscreenControl: false
+
 	});
 
 	// Display an InfoWindow at the map center
@@ -148,7 +231,8 @@ function getNearbyPlaces(position) {
 	let request = {
 		location: position, //variables of search parameters, able to change 
 		radius: searchRadius,
-		keyword: locationType
+		type: locationType,
+		minPrice: "4"
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, nearbyCallback);
@@ -178,10 +262,12 @@ function createFullList(places) //we may only have 60 results, so we will not cr
 
 }
 
+
+ //search size. variable for future modification
 // Set markers at the location of each place result
 function createMarkers(places) {
 	let random = Math.random();
-	let searchSize = 5; //search size. variable for future modification
+
 	let i;
 	let randomPlaces = new Array();
 
@@ -218,7 +304,8 @@ function createMarkers(places) {
 							"geometry",
 							"rating",
 							"website",
-							"photos"
+							"photos",
+							"price_level"
 						]
 					};
 					/* Only fetch the details of a place when the user clicks on a marker.
@@ -313,6 +400,18 @@ function showPanel(placeResult) {
 	address.textContent = placeResult.formatted_address;
 	infoPane.appendChild(address);
 
+	
+	if (placeResult.price_level)
+		{
+		let price_level = document.createElement("p");
+
+		price_level.classList.add("details");
+		price_level.textContent = `Price: ${placeValue[placeResult.price_level]}`; //round to 2 decimals or else we get absurdly large float
+		infoPane.appendChild(price_level);
+		}
+	
+
+	
 	if (placeResult.website) {
 		let websitePara = document.createElement("p");
 		let websiteLink = document.createElement("a");
@@ -326,6 +425,9 @@ function showPanel(placeResult) {
 	// Open the infoPane
 	infoPane.classList.add("open");
 }
+
+
+
 
 /* POTENTIALLY REDUNDANT
 var x = document.getElementById("modal_msg");
