@@ -79,8 +79,9 @@ generate.onclick = function(){
 		{
 			openNowCheck = false;
 		}
-	
+	document.getElementById("generate").value = "Please wait...";
 	initMap();
+	
 	finalPlaces = [];
 	
 }
@@ -108,7 +109,7 @@ getLocations.onclick = function () {
 	finalPlaces = new Array(); /*an array of our curated place results*/
 	pageSize = 1; /*assume we have atleast 1 page of results to start*/
 	buttonPressed = true;
-
+	document.getElementById("generate").value = "Generate";
 	modal.style.display = "block"; //display
 	getLocations.style.display = "none";
 }
@@ -350,8 +351,9 @@ function createMarkers(places) {
 				});
 				
 			// Add places list under the map: by Brian
-			let newItem = document.createElement("div");
+			let newItem = document.createElement("button");
 			newItem.textContent = marker.title;
+			newItem.setAttribute('class', 'lowerButton');
 			newItem.addEventListener("click", () => {
 				google.maps.event.trigger(marker, 'click', {});
 			});
@@ -369,6 +371,7 @@ function createMarkers(places) {
 	map.fitBounds(bounds);
 	pageSize = 4;
 	placesList.firstElementChild.classList.add("childDiv");	
+	document.getElementById("generate").value = "Generate Again?";
 }
 
 // Builds an InfoWindow to display details above the marker
@@ -525,3 +528,7 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 } */
+
+
+
+
