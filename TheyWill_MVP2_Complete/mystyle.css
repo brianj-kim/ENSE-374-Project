@@ -257,12 +257,14 @@ a {
   line-height: 24px;
   font-size: 1vmax;
   font-family:sans-serif;
-  border-right: 1px dotted #111;
+  border-left: 1px dotted #b0b0b0;
   cursor: pointer;
 }
 
 
-
+  #lists .childDiv {
+    border-left: 0px;
+  }
 
 
 
