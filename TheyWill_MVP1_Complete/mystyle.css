@@ -162,17 +162,7 @@ li a:hover {
   background-color: grey;
 }
 
-#panel {
-  height: 65vh;
-  width: 12.5vmax;
-  background-color: rgba(255, 255, 255, 0.9);
-  position: absolute;
-  z-index: 1;
-  overflow-x: hidden;
-  transition: all .2s ease-out;
-  font-size: 2vmin;
-  word-wrap: break-word
-}
+
 
 #panel>h1 {
   font-size: 0.9em;
@@ -184,7 +174,15 @@ li a:hover {
 }
 
 .open {
-  width: 13%;
+  height: 65vh;
+  width: 12.5vmax;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: all .2s ease-out;
+  font-size: 2vmin;
+  word-wrap: break-word
 }
 
 /* Styling for place details */
@@ -320,7 +318,9 @@ input.button:hover {
 	 border: 1px solid black;
 }
 
-
+#generate {
+  outline:0;
+}
 
 
 
