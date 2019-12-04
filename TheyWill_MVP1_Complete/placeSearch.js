@@ -201,8 +201,8 @@ function initMap() {
 function handleLocationError(browserHasGeolocation, infoWindow) {
 	// Set default location to U of R (Regina)
 	pos = {
-		lat: 50.437,
-		lng: -104.6
+		lat: 40.7128,
+		lng: -74.0060
 	};
 	map = new google.maps.Map(document.getElementById("map"), {
 		center: pos,
@@ -234,7 +234,7 @@ function getNearbyPlaces(position) {
 		location: position, //variables of search parameters, able to change 
 		radius: searchRadius,
 		type: locationType,
-		minprice: "5"
+		minPriceLevel: venueValue
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, nearbyCallback);
