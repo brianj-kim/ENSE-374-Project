@@ -125,6 +125,7 @@ li a:hover {
   padding-left: 3vw;
   border: 1px solid #888;
   width: 80%;
+  border-radius: 10px;
   /* Could be more or less, depending on screen size */
 }
 
@@ -160,6 +161,7 @@ li a:hover {
   height: 65vh;
   /*height: calc(100% - 75px);*/
   background-color: grey;
+  border-radius: 0 0 10px 10px;
 }
 
 
@@ -324,8 +326,15 @@ input.button:hover {
 }
 
 #generate {
-  outline:0;
+  outline: 0;
+  border-radius: 12px 12px 0 0;
 }
+
+
+#getLocations {
+  outline: 0;
+}
+
 
 .bigColumn {
   float: left;
